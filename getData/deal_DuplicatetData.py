@@ -63,11 +63,11 @@ def deal_duplicate_in_hq_lost(db_engine, prefix, pkey, str_date, end_date):
     print('deal_duplicate_date.', prefix, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
           '将重复数据从原表中删除！')
     try:
-        sql_del = 'delete from %s a where a.trade_date between \'%s\' and \'%s\' ' \
+        sql_del = 'delete a from %s a where a.trade_date between \'%s\' and \'%s\' ' \
                   'and a.id not in (select b.id from tmp_duplicate b)' % (prefix, str_date, end_date)
         res = db_engine.execute(sql_del)
     except:
-        sql_del = 'delete from %s a where a.id not in (select b.id from tmp_duplicate b)' % prefix
+        sql_del = 'delete a from %s a where a.id not in (select b.id from tmp_duplicate b)' % prefix
         res = db_engine.execute(sql_del)
 
     # drop 临时表 tmp_duplicate

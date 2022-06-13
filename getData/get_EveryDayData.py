@@ -177,9 +177,9 @@ if __name__ == '__main__':
     # end_date = '20220610'
 
     # 加载列表信息，该类接口均为清空后重新加载，其中日期表建议加载一次就可以了
-    get_data_by_reload_all(db_engine, ts_pro)
+    # get_data_by_reload_all(db_engine, ts_pro)
     # 按日期段加载每日数据
-    get_data_by_date(db_engine, ts_pro, str_date, end_date)
+    # get_data_by_date(db_engine, ts_pro, str_date, end_date)
     # 按日期段进行数据整理
     deal_wrong_date(db_engine, ts_pro, ts, str_date, end_date)
 

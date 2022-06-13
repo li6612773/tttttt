@@ -18,13 +18,13 @@ def init_LostList_by_date(db_engine):
 def get_LostData_by_date_and_lost_Type(db_engine, ts_pro, get_data, trade_Date, lost_Type):
     # 删除多余数据
     idate = str(trade_Date.strftime('%Y%m%d'))
-    sql = "delete from %s where trade_date = \'%s\' " % (lost_Type, idate)
+    sql = "delete a from %s a where trade_date = \'%s\' " % (lost_Type, idate)
     res = db_engine.execute(sql)
     print('get_LostData_By_Date.', lost_Type, ':已删除表中trade_date为：', idate, '的数据')
     # 加载数据
     get_data(db_engine, ts_pro, idate, idate)
     # 删除lost数据库数据
-    sql = "delete from hq_lost where lost_Type = \'%s\' and trade_Date = \'%s\'  " % (lost_Type, idate)
+    sql = "delete a from hq_lost a where lost_Type = \'%s\' and trade_Date = \'%s\'  " % (lost_Type, idate)
     res = db_engine.execute(sql)
     print('get_LostData_By_Date.', lost_Type, ':补全数据后，已删除hq_lost中lost_Type为', lost_Type, '，trade_date日期为', idate,
           ' 的数据')
