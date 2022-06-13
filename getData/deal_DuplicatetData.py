@@ -89,7 +89,11 @@ def deal_duplicate_data(db_engine, ts_pro, ts, tableList, str_date, end_date):
     for tb_pkey in tableList:
         tb = tb_pkey[0]
         pkey = tb_pkey[1]
-        deal_duplicate_in_hq_lost(db_engine, tb, pkey, str_date, end_date)
+        try:
+            deal_duplicate_in_hq_lost(db_engine, tb, pkey, str_date, end_date)
+        except Exception as e:
+            print('%s table has %s error.' % (tb,e))
+            continue
 
 
 if __name__ == '__main__':
