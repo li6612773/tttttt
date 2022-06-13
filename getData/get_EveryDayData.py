@@ -81,7 +81,7 @@ def get_data_by_date(db_engine, ts_pro, str_date, end_date):
 
     # 港股
     get_HK_Daily(db_engine, ts_pro, str_date, end_date)
-    get_HK_CCASS_Hold_Detail(db_engine, ts_pro, str_date, end_date)
+    # get_HK_CCASS_Hold_Detail(db_engine, ts_pro, str_date, end_date)
 
     # 转债
     get_Cb_Daily(db_engine, ts_pro, str_date, end_date)
@@ -100,7 +100,7 @@ def get_data_by_date(db_engine, ts_pro, str_date, end_date):
     get_financial_income(db_engine, ts_pro)  # 利润表
 
     # 另类数据
-    get_Alternative_CCTV_News(db_engine, ts_pro, str_date, end_date)  # 新闻联播文字稿，建议5000分以上再开启
+    # get_Alternative_CCTV_News(db_engine, ts_pro, str_date, end_date)  # 新闻联播文字稿，建议5000分以上再开启
 
     # 指数
     get_index_daily(db_engine, ts_pro, str_date, end_date)
@@ -171,10 +171,10 @@ if __name__ == '__main__':
     ts = init_ts()
     currentDate = init_currentDate()
     # 指定日期是注意日期格式应为：'20210901'
-    # str_date = currentDate
-    # end_date = currentDate
-    str_date = '20090101'
+    str_date = currentDate
     end_date = currentDate
+    # str_date = '20090101'
+    # end_date = '20220610'
 
     # 加载列表信息，该类接口均为清空后重新加载，其中日期表建议加载一次就可以了
     get_data_by_reload_all(db_engine, ts_pro)
