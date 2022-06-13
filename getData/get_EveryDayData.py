@@ -109,7 +109,7 @@ def get_data_by_date(db_engine, ts_pro, str_date, end_date):
     # get_stock_Min_By_date_and_codelist(db_engine, ts, str_date, end_date)  # 1min tick数据
     # get_Cb_Min_By_date_and_codelist(db_engine, ts, str_date, end_date)
 
-    get_report_rc(db_engine, ts_pro, str_date, end_date)
+    # get_report_rc(db_engine, ts_pro, str_date, end_date)
     get_hk_hold(db_engine, ts_pro,str_date, end_date)
     get_anns_daily(db_engine, ts_pro, str_date, end_date)
 
@@ -173,7 +173,7 @@ if __name__ == '__main__':
     # 指定日期是注意日期格式应为：'20210901'
     str_date = currentDate
     end_date = currentDate
-    # str_date = '20090101'
+    # str_date = '20021101'
     # end_date = '20220610'
 
     # 加载列表信息，该类接口均为清空后重新加载，其中日期表建议加载一次就可以了
